@@ -9,14 +9,14 @@
 #include <string.h>
 
 int main(){
-  int clientSocket;
+  int cSocket;
   char buffer[1024];
   struct sockaddr_in serverAddr;
   socklen_t addr_size;
 
   /*---- Create the socket. The three arguments are: ----*/
   /* 1) Internet domain 2) Stream socket 3) Default protocol (TCP in this case) */
-  clientSocket = socket(PF_INET, SOCK_STREAM, 0);
+  cSocket = socket(PF_INET, SOCK_STREAM, 0);
   
   /*---- Configure settings of the server address struct ----*/
   /* Address family = Internet */
@@ -30,10 +30,10 @@ int main(){
 
   /*---- Connect the socket to the server using the address struct ----*/
   addr_size = sizeof serverAddr;
-  connect(clientSocket, (struct sockaddr *) &serverAddr, addr_size);
+  connect(cSocket, (struct sockaddr *) &serverAddr, addr_size);
 
   /*---- Read the message from the server into the buffer ----*/
-  recv(clientSocket, buffer, 1024, 0);
+  recv(cSocket, buffer, 1024, 0);
 
   /*---- Print the received message ----*/
   printf("Data received: %s",buffer);   
