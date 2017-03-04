@@ -19,8 +19,8 @@ printf("\nReady for connect...");
 connect(sockfd,(struct sockaddr*)&serv_addr,sizeof(serv_addr));
 printf("\nEnter the message to send\n");
 printf("\nClient : ");
-fgets(buffer,20,stdin); //user terminalல டைப் பண்றத bufferல store பண்ணும்
-write(w_sockfd,buffer,20); // server dataவ bufferல இருந்து socketக்கு அனுப்பும்
+fgets(w_buffer,20,stdin); //user terminalல டைப் பண்றத bufferல store பண்ணும்
+write(w_sockfd,buffer,20); // bufferல இருந்து socket வழியா serverக்கு அனுப்பும்
 read(sockfd,r_buffer,20)
 printf("Server echoes : %s",r_buffer);
 printf("\n");
